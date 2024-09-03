@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import heroImg from "../assets/heroimg.png";
-import backgroundImg from "../assets/homeimg.webp";
+import backgroundImg from "../assets/backgroundImg.png";
 
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
 const Hero = () => {

@@ -1,55 +1,54 @@
-import building from "../src/assets/building.svg";
-import construction from "../src/assets/construction.svg";
-import design from "../src/assets/design.svg";
-import document from "../src/assets/document.svg";
-import paint from "../src/assets/paint.svg";
-import support from "../src/assets/support.svg";
+import building from "../assets/building.svg";
+import construction from "../assets/construction.svg";
+import design from "../assets/design.svg";
+import document from "../assets/document.svg";
+import paint from "../assets/paint.svg";
+import support from "../assets/support.svg";
 
+import { FaRegBuilding, FaSitemap } from "react-icons/fa";
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { MdOutlineDesignServices } from "react-icons/md";
-import { FaRegBuilding } from "react-icons/fa";
-import { FaSitemap } from "react-icons/fa";
 
-import client1 from "../src/assets/client1.png";
-import client2 from "../src/assets/client2.png";
-import client3 from "../src/assets/client3.png";
+import client1 from "../assets/client1.png";
+import client2 from "../assets/client2.png";
+import client3 from "../assets/client3.png";
 
 export const allservices = [
   {
     icon: building,
-    title: "BUILDING RENOVATION",
+    title: "RÉNOVATION DE BÂTIMENTS",
     about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Nous offrons des services complets de rénovation pour redonner vie à vos bâtiments, en respectant vos besoins et vos attentes.",
   },
   {
     icon: construction,
-    title: "CONSTRUCTION SERVICES",
+    title: "SERVICES DE CONSTRUCTION",
     about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Nous assurons la construction de bâtiments de qualité, de la conception à la réalisation, avec un souci constant de la satisfaction client.",
   },
   {
     icon: design,
-    title: "DESIGN & PLANNING",
+    title: "CONCEPTION ET PLANIFICATION",
     about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Notre équipe vous accompagne dans la conception et la planification de vos projets, en tenant compte de tous les détails pour garantir le succès.",
   },
   {
     icon: document,
     title: "DOCUMENTATION",
     about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Nous gérons toute la documentation nécessaire pour vos projets de construction, y compris les permis et les rapports techniques.",
   },
   {
     icon: paint,
-    title: "INTERIOR DESIGN",
+    title: "DESIGN INTÉRIEUR",
     about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Nous créons des espaces intérieurs qui reflètent vos goûts et vos besoins, alliant esthétique et fonctionnalité.",
   },
   {
     icon: support,
-    title: "CUSTOMER SUPPORT",
+    title: "SERVICE CLIENT",
     about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Notre équipe est disponible pour répondre à vos questions et vous accompagner tout au long de votre projet, de la conception à la réalisation.",
   },
 ];
 
