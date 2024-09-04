@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
+import { clients } from "../utils/export";
 
 const Testimonials = () => {
   return (
-    <div id="services" className="w-full bg-white">
+    <div id="clients" className="w-full">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -15,13 +17,13 @@ const Testimonials = () => {
           variants={slideUpVariants}
           className="text-yellow-500 text-2xl"
         >
-          OFFRE SPECIALE
+          TEMOIGNAGES
         </motion.h1>
         <motion.h1
           variants={slideUpVariants}
-          className="text-black uppercase text-[40px] font-bold text-center"
+          className="text-white uppercase text-[40px] font-bold text-center"
         >
-          NOS SERVICES
+          CE QU'ILS PENSENT DE NOUS
         </motion.h1>
         <motion.div
           variants={slideUpVariants}
@@ -31,8 +33,32 @@ const Testimonials = () => {
           initial="hidden"
           whileInView={"visible"}
           variants={zoomInVariants}
-          className="w-full grid lg:grid-cols-3 grid-cols-1 justify-center items-start gap-[20px] mt-[30px]"
-        ></motion.div>
+          className="lg:w-full w-[90%] grid lg:grid-cols-3 grid-cols-1 justify-center items-start gap-8 mt-[30px]"
+        >
+          {clients.map((item, index) => (
+            <div
+              className="flex justify-center items-center flex-col"
+              key={index}
+            >
+              <div className="border-2 border-white hover:bg-yellow-500 pb-[100px] pt-[30px]">
+                <p className="text-white hover:text-black text-lg text-center">
+                  {item.about}
+                </p>
+              </div>
+              <div className="flex flex-col justify-center items-center gap-[5px]">
+                <Image
+                  className="mt-[-50px]"
+                  src={item.image}
+                  alt=" client image"
+                />
+                <h1 className="text-white text-[27px] font-semibold uppercase">
+                  {item.name}
+                </h1>
+                <h1 className="text-yellow-500 text-[22px]">{item.post}</h1>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
     </div>
   );

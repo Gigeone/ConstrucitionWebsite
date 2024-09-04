@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Porfolio from "./components/Porfolio";
 import Services from "./components/Services";
 import Working from "./components/Working";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <Porfolio />
       <Working />
+      <Testimonials />
     </>
   );
 }
