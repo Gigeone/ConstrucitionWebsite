@@ -16,7 +16,7 @@ import client3 from "../assets/client3.png";
 export const allservices = [
   {
     icon: building,
-    title: "RÉNOVATION DE BÂTIMENTS",
+    title: "Rénovation Intérieure",
     about:
       "Nous offrons des services complets de rénovation pour redonner vie à vos bâtiments, en respectant vos besoins et vos attentes.",
   },
@@ -55,27 +55,27 @@ export const allservices = [
 export const planning = [
   {
     icon: IoDocumentTextSharp,
-    title: "planning",
+    title: "planification",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
+      "Nous vous accompagnons dans la planification de vos projets de construction, de la conception initiale jusqu'aux détails finaux, pour garantir un déroulement sans accroc.",
   },
   {
     icon: MdOutlineDesignServices,
-    title: "design",
+    title: "conception",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
+      "Nos experts en design créent des plans sur mesure pour répondre à vos besoins, en intégrant des solutions innovantes et esthétiques dans chaque projet.",
   },
   {
     icon: FaRegBuilding,
-    title: "building",
+    title: "réalisation",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
+      "Nous réalisons vos projets de construction avec précision, en respectant les normes de qualité et les délais impartis, du gros œuvre aux finitions.",
   },
   {
     icon: FaSitemap,
-    title: "finish",
+    title: "finition",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
+      "Nous apportons la touche finale à vos travaux, en soignant les détails pour un résultat impeccable, qui répond à vos attentes les plus élevées.",
   },
 ];
 

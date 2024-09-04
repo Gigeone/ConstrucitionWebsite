@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import heroImg from "../assets/heroimg.png";
 import backgroundImg from "../assets/backgroundImg.png";
+import heroImg from "../assets/heroimg.png";
 
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
 const Hero = () => {
@@ -10,7 +10,12 @@ const Hero = () => {
     <div
       id="hero"
       className="bg-black w-full lg:h-[700px] h-fit m-auto pt-[60px] lg:pt-[0px] lg:px-[150px] px-[20px] flex justify-between items-center lg:flex-row flex-col lg:gap-5 gap-[50px] bg-cover bg-center bg-center"
-      style={{ backgroundImage: `url(${backgroundImg.src})` }}
+      style={{
+        backgroundImage: `url(${backgroundImg.src})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
     >
       <motion.div
         initial="hidden"
