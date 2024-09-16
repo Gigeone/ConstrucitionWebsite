@@ -31,7 +31,7 @@ const Hero = () => {
         </motion.h1>
         <motion.h1
           variants={slideUpVariants}
-          className="text-white uppercase text-[50px] font-bold"
+          className="text-white uppercase text-[40px] font-bold"
         >
           Nous construisons vos rêves
         </motion.h1>
