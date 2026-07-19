@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import project1 from "../assets/project1.jpg";
 import project2 from "../assets/project2.jpg";
@@ -14,6 +14,7 @@ const projects = [
     place: "Nantes",
     tags: "Peinture · Parquet",
     className: "sm:col-span-2 sm:row-span-2 h-[260px] sm:h-full sm:min-h-[420px]",
+    sizes: "(max-width: 640px) 100vw, 50vw",
   },
   {
     src: project1,
@@ -21,6 +22,7 @@ const projects = [
     place: "Rezé",
     tags: "Salle de bain",
     className: "h-[260px] sm:h-[200px]",
+    sizes: "(max-width: 640px) 100vw, 25vw",
   },
   {
     src: project2,
@@ -28,6 +30,7 @@ const projects = [
     place: "Saint-Herblain",
     tags: "Cuisine",
     className: "h-[260px] sm:h-[200px]",
+    sizes: "(max-width: 640px) 100vw, 25vw",
   },
   {
     src: project4,
@@ -35,13 +38,14 @@ const projects = [
     place: "Vertou",
     tags: "Extérieur",
     className: "sm:col-span-2 h-[260px] sm:h-[200px]",
+    sizes: "(max-width: 640px) 100vw, 50vw",
   },
 ];
 
 const Porfolio = () => {
   return (
-    <div id="projects" className="w-full bg-paper">
-      <motion.div
+    <section id="projects" aria-label="Nos réalisations" className="w-full scroll-mt-24 bg-paper">
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -56,7 +60,7 @@ const Porfolio = () => {
           <em className="italic text-accent">près de chez vous</em>
         </h2>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -64,7 +68,7 @@ const Porfolio = () => {
           className="mt-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-4"
         >
           {projects.map((project) => (
-            <div
+            <figure
               key={project.name}
               className={`group relative w-full overflow-hidden rounded-3xl ${project.className}`}
             >
@@ -72,9 +76,11 @@ const Porfolio = () => {
                 src={project.src}
                 alt={`${project.name} — ${project.place}`}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes={project.sizes}
+                placeholder="blur"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
                 <div>
                   <p className="font-heading text-lg font-semibold leading-snug text-paper">
                     {project.name}
@@ -84,12 +90,12 @@ const Porfolio = () => {
                 <span className="hidden shrink-0 rounded-full bg-paper/15 px-3 py-1 text-xs font-medium text-paper backdrop-blur-sm sm:block">
                   {project.tags}
                 </span>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           ))}
-        </motion.div>
-      </motion.div>
-    </div>
+        </m.div>
+      </m.div>
+    </section>
   );
 };
 

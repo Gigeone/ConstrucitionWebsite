@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { FaQuoteLeft, FaStar } from "react-icons/fa6";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
@@ -7,8 +7,8 @@ import { clients } from "../utils/export";
 
 const Testimonials = () => {
   return (
-    <div id="clients" className="w-full bg-sand">
-      <motion.div
+    <section id="clients" aria-label="Témoignages clients" className="w-full scroll-mt-24 bg-sand">
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -23,7 +23,7 @@ const Testimonials = () => {
           <em className="italic text-accent">disent de nous</em>
         </h2>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -31,37 +31,43 @@ const Testimonials = () => {
           className="mt-10 grid w-full grid-cols-1 gap-5 lg:grid-cols-3"
         >
           {clients.map((item) => (
-            <div
+            <blockquote
               className="flex flex-col items-start gap-5 rounded-3xl bg-paper p-8"
               key={item.name}
             >
               <div className="flex w-full items-center justify-between">
-                <FaQuoteLeft className="text-2xl text-accent" />
-                <div className="flex gap-1 text-sm text-accent">
+                <FaQuoteLeft aria-hidden className="text-2xl text-accent" />
+                <div
+                  className="flex gap-1 text-sm text-accent"
+                  aria-label="Note : 5 étoiles sur 5"
+                >
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <FaStar key={i} />
+                    <FaStar key={i} aria-hidden />
                   ))}
                 </div>
               </div>
               <p className="text-[15px] leading-relaxed text-ink/80">
                 {item.about}
               </p>
-              <div className="mt-auto flex items-center gap-3 border-t border-ink/10 pt-5">
+              <footer className="mt-auto flex items-center gap-3 border-t border-ink/10 pt-5">
                 <Image
                   className="size-12 rounded-full object-cover"
                   src={item.image}
-                  alt={item.name}
+                  alt={`Photo de ${item.name}`}
+                  sizes="48px"
                 />
                 <div>
-                  <h3 className="text-sm font-bold text-ink">{item.name}</h3>
+                  <cite className="text-sm font-bold not-italic text-ink">
+                    {item.name}
+                  </cite>
                   <p className="text-sm text-accent-dark">{item.post}</p>
                 </div>
-              </div>
-            </div>
+              </footer>
+            </blockquote>
           ))}
-        </motion.div>
-      </motion.div>
-    </div>
+        </m.div>
+      </m.div>
+    </section>
   );
 };
 

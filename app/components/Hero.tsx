@@ -1,8 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { FaArrowRight, FaLocationDot, FaStar } from "react-icons/fa6";
-import { Link } from "react-scroll";
 import bathImg from "../assets/project1.jpg";
 import roomImg from "../assets/project3.jpg";
 
@@ -16,9 +15,10 @@ const stats = [
 
 const Hero = () => {
   return (
-    <div
+    <section
       id="hero"
-      className="relative w-full overflow-hidden bg-paper"
+      aria-label="Présentation"
+      className="relative w-full scroll-mt-24 overflow-hidden bg-paper"
     >
       <div
         className="pointer-events-none absolute -top-40 right-[-10%] size-[520px] rounded-full opacity-60 blur-3xl"
@@ -36,64 +36,58 @@ const Hero = () => {
       />
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-14 px-6 py-20 lg:flex-row lg:justify-between lg:px-8 lg:py-28">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={slideUpVariants}
           className="flex w-full flex-col items-start gap-6 lg:w-[52%]"
         >
-          <motion.span
+          <m.span
             variants={slideUpVariants}
             className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/60 px-4 py-1.5 text-sm font-medium text-ink/80"
           >
             <FaLocationDot className="text-accent" />
             Artisans à Nantes &amp; alentours
-          </motion.span>
+          </m.span>
 
-          <motion.h1
+          <m.h1
             variants={slideUpVariants}
             className="font-heading text-balance text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl lg:text-7xl"
           >
             Petits travaux,{" "}
             <em className="italic text-accent">grandes finitions.</em>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             variants={slideUpVariants}
             className="max-w-xl text-lg leading-relaxed text-ink/70"
           >
             Salle de bain, cuisine, placo, peinture, parquet : Momo Renov&apos;
             rénove votre intérieur pièce par pièce, avec des finitions
             soignées, des délais tenus et un chantier toujours propre.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             variants={slideUpVariants}
             className="flex flex-wrap items-center gap-4"
           >
-            <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-90}
-              className="cursor-pointer rounded-full bg-accent px-8 py-4 text-sm font-semibold text-paper shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
+            <a
+              href="#contact"
+              className="rounded-full bg-accent px-8 py-4 text-sm font-semibold text-paper shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
             >
               Demander un devis gratuit
-            </Link>
-            <Link
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-90}
-              className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 px-7 py-4 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+            </a>
+            <a
+              href="#projects"
+              className="group inline-flex items-center gap-2 rounded-full border border-ink/20 px-7 py-4 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
             >
               Voir nos réalisations
               <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
+            </a>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={slideUpVariants}
             className="mt-6 flex w-full flex-wrap gap-x-10 gap-y-4 border-t border-ink/10 pt-6"
           >
@@ -107,10 +101,10 @@ const Hero = () => {
                 </p>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -122,6 +116,8 @@ const Hero = () => {
               src={roomImg}
               alt="Séjour rénové : peinture et parquet posés par Momo Renov'"
               className="h-[420px] w-full object-cover lg:h-[540px]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              placeholder="blur"
               priority
             />
           </div>
@@ -131,6 +127,8 @@ const Hero = () => {
               src={bathImg}
               alt="Salle de bain rénovée par Momo Renov'"
               className="h-32 w-full object-cover lg:h-36"
+              sizes="208px"
+              placeholder="blur"
             />
           </div>
 
@@ -138,9 +136,9 @@ const Hero = () => {
             <FaStar className="text-accent" />
             Devis gratuit, sans engagement
           </div>
-        </motion.div>
+        </m.div>
       </div>
-    </div>
+    </section>
   );
 };
 

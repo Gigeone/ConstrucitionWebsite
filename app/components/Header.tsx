@@ -1,15 +1,14 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
-import { Link } from "react-scroll";
 
 const navItems = [
-  { link: "Accueil", path: "hero" },
-  { link: "À propos", path: "about" },
-  { link: "Savoir-faire", path: "services" },
-  { link: "Réalisations", path: "projects" },
-  { link: "Contact", path: "contact" },
+  { link: "Accueil", path: "#hero" },
+  { link: "À propos", path: "#about" },
+  { link: "Savoir-faire", path: "#services" },
+  { link: "Réalisations", path: "#projects" },
+  { link: "Contact", path: "#contact" },
 ];
 
 const Header = () => {
@@ -19,42 +18,43 @@ const Header = () => {
   const closeMenu = () => setOpen(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-ink/10 bg-paper/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8">
-        <h1 className="font-heading text-2xl font-semibold tracking-tight text-ink md:text-[27px]">
+    <header className="sticky top-0 z-50 w-full border-b border-ink/10 bg-paper/85 backdrop-blur-md">
+      <nav
+        aria-label="Navigation principale"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8"
+      >
+        <a
+          href="#hero"
+          className="font-heading text-2xl font-semibold tracking-tight text-ink md:text-[27px]"
+        >
           Momo <span className="italic text-accent">Renov&apos;</span>
-        </h1>
+        </a>
 
         <ul className="hidden items-center gap-1 lg:flex">
           {navItems.map(({ link, path }) => (
-            <Link
-              key={path}
-              className="cursor-pointer rounded-full px-4 py-2 text-[15px] font-medium text-ink/70 transition-colors hover:bg-sand hover:text-ink"
-              activeClass="bg-sand text-ink"
-              to={path}
-              spy={true}
-              smooth={true}
-              offset={-90}
-            >
-              {link}
-            </Link>
+            <li key={path}>
+              <a
+                className="rounded-full px-4 py-2 text-[15px] font-medium text-ink/70 transition-colors hover:bg-sand hover:text-ink"
+                href={path}
+              >
+                {link}
+              </a>
+            </li>
           ))}
         </ul>
 
-        <Link
-          to="contact"
-          spy={true}
-          smooth={true}
-          offset={-90}
-          className="hidden cursor-pointer rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent lg:inline-block"
+        <a
+          href="#contact"
+          className="hidden rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent lg:inline-block"
         >
           Demander un devis
-        </Link>
+        </a>
 
         <button
           className="flex items-center justify-center rounded-full p-2 text-ink lg:hidden"
           onClick={toggleMenu}
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
         >
           {open ? (
             <FaXmark className="size-7 text-accent" />
@@ -62,11 +62,11 @@ const Header = () => {
             <FaBars className="size-7 text-accent" />
           )}
         </button>
-      </div>
+      </nav>
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -75,33 +75,30 @@ const Header = () => {
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
               {navItems.map(({ link, path }) => (
-                <Link
-                  key={path}
-                  className="w-full cursor-pointer rounded-xl px-4 py-3 text-center text-[15px] font-medium text-ink transition-colors hover:bg-sand"
-                  to={path}
-                  spy={true}
-                  smooth={true}
-                  offset={-90}
-                  onClick={closeMenu}
-                >
-                  {link}
-                </Link>
+                <li key={path}>
+                  <a
+                    className="block w-full rounded-xl px-4 py-3 text-center text-[15px] font-medium text-ink transition-colors hover:bg-sand"
+                    href={path}
+                    onClick={closeMenu}
+                  >
+                    {link}
+                  </a>
+                </li>
               ))}
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-90}
-                onClick={closeMenu}
-                className="mt-2 w-full cursor-pointer rounded-xl bg-ink px-4 py-3 text-center text-[15px] font-semibold text-paper"
-              >
-                Demander un devis
-              </Link>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={closeMenu}
+                  className="mt-2 block w-full rounded-xl bg-ink px-4 py-3 text-center text-[15px] font-semibold text-paper"
+                >
+                  Demander un devis
+                </a>
+              </li>
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 };
 

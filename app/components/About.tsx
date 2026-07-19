@@ -1,7 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FaCheck } from "react-icons/fa6";
-import { Link } from "react-scroll";
 import { slideUpVariants } from "../utils/animation";
 
 const highlights = [
@@ -13,9 +12,9 @@ const highlights = [
 
 const About = () => {
   return (
-    <div id="about" className="w-full bg-sand">
+    <section id="about" aria-label="À propos" className="w-full scroll-mt-24 bg-sand">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 px-6 py-20 lg:flex-row lg:justify-between lg:px-8 lg:py-28">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -35,9 +34,9 @@ const About = () => {
             de la métropole nantaise, pièce par pièce, du simple coup de neuf
             à la rénovation complète d&apos;une salle de bain.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -63,18 +62,15 @@ const About = () => {
               </li>
             ))}
           </ul>
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-90}
-            className="mt-2 cursor-pointer rounded-full bg-ink px-8 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-accent"
+          <a
+            href="#contact"
+            className="mt-2 rounded-full bg-ink px-8 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-accent"
           >
             Parlons de votre projet
-          </Link>
-        </motion.div>
+          </a>
+        </m.div>
       </div>
-    </div>
+    </section>
   );
 };
 

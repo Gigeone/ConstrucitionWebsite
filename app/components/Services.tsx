@@ -1,12 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
 import { allservices } from "../utils/export";
 
 const Services = () => {
   return (
-    <div id="services" className="w-full bg-paper">
-      <motion.div
+    <section id="services" aria-label="Nos savoir-faire" className="w-full scroll-mt-24 bg-paper">
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -27,7 +27,7 @@ const Services = () => {
           </p>
         </div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -35,13 +35,13 @@ const Services = () => {
           className="mt-10 grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           {allservices.map((item) => (
-            <motion.div
+            <m.div
               variants={zoomInVariants}
               className="group flex flex-col items-start gap-4 rounded-3xl border border-ink/10 bg-white p-8 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-ink/5"
               key={item.title}
             >
               <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/10 text-2xl text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
-                <item.icon />
+                <item.icon aria-hidden />
               </div>
               <h3 className="font-heading text-2xl font-semibold text-ink">
                 {item.title}
@@ -49,11 +49,11 @@ const Services = () => {
               <p className="text-[15px] leading-relaxed text-ink/70">
                 {item.about}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
-      </motion.div>
-    </div>
+        </m.div>
+      </m.div>
+    </section>
   );
 };
 

@@ -1,12 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
 import { planning } from "../utils/export";
 
 const Working = () => {
   return (
-    <div id="working" className="w-full bg-ink">
-      <motion.div
+    <section id="working" aria-label="Comment ça marche" className="w-full scroll-mt-24 bg-ink">
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -21,7 +21,7 @@ const Working = () => {
           <em className="italic text-accent">sans mauvaise surprise</em>
         </h2>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -34,7 +34,7 @@ const Working = () => {
               key={item.title}
             >
               <div className="flex w-full items-center justify-between">
-                <item.icon className="size-9 text-accent" />
+                <item.icon aria-hidden className="size-9 text-accent" />
                 <span className="font-heading text-4xl font-semibold italic text-paper/15">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -47,9 +47,9 @@ const Working = () => {
               </p>
             </div>
           ))}
-        </motion.div>
-      </motion.div>
-    </div>
+        </m.div>
+      </m.div>
+    </section>
   );
 };
 
