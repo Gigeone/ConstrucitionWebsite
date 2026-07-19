@@ -36,10 +36,24 @@ const Footer = () => {
             </ul>
           </nav>
         </div>
-        <div className="mx-auto mt-8 flex max-w-7xl items-center justify-center border-t border-paper/10 pt-6 text-paper/50">
+        <div className="mx-auto mt-8 flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-paper/10 pt-6 text-paper/50 sm:flex-row">
           <p className="text-center text-sm">
             © 2026 Momo Renov&apos; — tous droits réservés
           </p>
+          <div className="flex items-center gap-5 text-sm">
+            <a
+              href="/mentions-legales"
+              className="transition-colors hover:text-accent"
+            >
+              Mentions légales
+            </a>
+            <a
+              href="/confidentialite"
+              className="transition-colors hover:text-accent"
+            >
+              Confidentialité
+            </a>
+          </div>
         </div>
       </footer>
 

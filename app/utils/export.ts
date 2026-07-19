@@ -81,6 +81,39 @@ export const planning = [
   },
 ];
 
+export const faqs = [
+  {
+    question: "Quel est le délai pour recevoir un devis ?",
+    answer:
+      "Après un premier échange et une visite gratuite chez vous, vous recevez un devis détaillé sous 24h. Il est gratuit et sans engagement.",
+  },
+  {
+    question: "Dans quelles communes intervenez-vous ?",
+    answer:
+      "Nous intervenons à Nantes et dans toute la métropole : Rezé, Saint-Herblain, Vertou, Orvault, Carquefou, Bouguenais, Couëron… En pratique, dans un rayon d'environ 30 km autour de Nantes.",
+  },
+  {
+    question: "Êtes-vous assurés ?",
+    answer:
+      "Oui. Nous disposons d'une assurance responsabilité civile professionnelle et de la garantie décennale. Les attestations vous sont fournies sur simple demande, avec le devis.",
+  },
+  {
+    question: "Combien de temps durent les travaux ?",
+    answer:
+      "Cela dépend du chantier : comptez 1 à 2 semaines pour une salle de bain complète, 2 à 3 jours pour la peinture d'une pièce, 1 à 3 jours pour la pose d'un parquet. Le délai précis figure dans le devis et il est respecté.",
+  },
+  {
+    question: "Peut-on habiter le logement pendant les travaux ?",
+    answer:
+      "Dans la grande majorité des cas, oui. Nous protégeons les sols et les meubles, limitons la poussière et laissons un chantier propre et rangé chaque soir.",
+  },
+  {
+    question: "Faites-vous le gros œuvre ?",
+    answer:
+      "Non, nous sommes spécialisés dans le second œuvre et les finitions : salle de bain, cuisine, placo, peinture, parquet et petits travaux. Si votre projet nécessite du gros œuvre, nous pouvons vous orienter vers des partenaires de confiance.",
+  },
+];
+
 export const clients = [
   {
     image: client1,
