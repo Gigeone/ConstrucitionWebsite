@@ -1,85 +1,143 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import backgroundImg from "../assets/backgroundImg.png";
-import heroImg from "../assets/heroimg.png";
+import { FaArrowRight, FaLocationDot, FaStar } from "react-icons/fa6";
+import { Link } from "react-scroll";
+import bathImg from "../assets/project1.jpg";
+import roomImg from "../assets/project3.jpg";
 
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
+
+const stats = [
+  { value: "12 ans", label: "d'expérience en rénovation" },
+  { value: "300+", label: "chantiers livrés dans la région" },
+  { value: "24h", label: "pour recevoir votre devis" },
+];
+
 const Hero = () => {
   return (
     <div
       id="hero"
-      className="bg-black w-full lg:h-[700px] h-fit m-auto pt-[60px] lg:pt-[0px] lg:px-[150px] px-[20px] flex justify-between items-center lg:flex-row flex-col lg:gap-5 gap-[50px] bg-cover bg-center bg-center"
-      style={{
-        backgroundImage: `url(${backgroundImg.src})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
+      className="relative w-full overflow-hidden bg-paper"
     >
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={slideUpVariants}
-        className="lg:w-[60%] w-full flex flex-col justify-center items-start lg:gap-8 gap-4"
-      >
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-yellow-500 text-2xl"
-        >
-          NOUS SOMMES LA TEAM MOMO !
-        </motion.h1>
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-white uppercase text-[40px] font-bold"
-        >
-          Nous construisons vos rêves
-        </motion.h1>
-        <div className="w-[120px] h-[6px] bg-yellow-500"></div>
-        <p className="text-white text-[20px] text-justify">
-          {" "}
-          Nous sommes spécialisés dans tous types de travaux chez les
-          particuliers. Que ce soit pour des rénovations, des extensions, des
-          constructions neuves, ou des aménagements intérieurs et extérieurs,
-          notre équipe d'experts est à votre service pour transformer votre
-          vision en réalité. Nous nous engageons à fournir un travail de
-          qualité, en respectant vos besoins et votre budget, pour vous offrir
-          un espace qui vous ressemble.
-        </p>
-        <motion.div
-          initial="hidden"
-          whileInView={"visible"}
-          variants={zoomInVariants}
-          className="flex justify-center items-center gap-5"
-        >
-          <motion.button
-            variants={zoomInVariants}
-            className="uppercase bg-yellow-500 hover:bg-white hover:text-black px-10 py-3 rounded-lg text-black font-bold"
-          >
-            En savoir plus
-          </motion.button>
-          <motion.button
-            variants={zoomInVariants}
-            className="uppercase border-white hover:border-yellow-500 hover:text-yellow-500 border-2 px-10 py-3 rounded-lg text-white font-bold"
-          >
-            Nous joindre
-          </motion.button>
-        </motion.div>
-      </motion.div>
+      <div
+        className="pointer-events-none absolute -top-40 right-[-10%] size-[520px] rounded-full opacity-60 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(188,84,50,0.22) 0%, rgba(188,84,50,0) 70%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute bottom-[-30%] left-[-10%] size-[420px] rounded-full opacity-70 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(237,230,217,0.9) 0%, rgba(237,230,217,0) 70%)",
+        }}
+      />
 
-      <div className="w-[40%] flex fle-col justify-end items-end">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-14 px-6 py-20 lg:flex-row lg:justify-between lg:px-8 lg:py-28">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          variants={zoomInVariants}
+          viewport={{ once: true }}
+          variants={slideUpVariants}
+          className="flex w-full flex-col items-start gap-6 lg:w-[52%]"
         >
-          <Image
-            src={heroImg}
-            alt="hero image"
-            className="lg:h-[600px] h-[300px] lg:mb-[-100px]"
-            width={473} // Largeur de l'image en pixels
-            height={774} // Hauteur de l'image en pixels
-          />
+          <motion.span
+            variants={slideUpVariants}
+            className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/60 px-4 py-1.5 text-sm font-medium text-ink/80"
+          >
+            <FaLocationDot className="text-accent" />
+            Artisans à Nantes &amp; alentours
+          </motion.span>
+
+          <motion.h1
+            variants={slideUpVariants}
+            className="font-heading text-balance text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl lg:text-7xl"
+          >
+            Petits travaux,{" "}
+            <em className="italic text-accent">grandes finitions.</em>
+          </motion.h1>
+
+          <motion.p
+            variants={slideUpVariants}
+            className="max-w-xl text-lg leading-relaxed text-ink/70"
+          >
+            Salle de bain, cuisine, placo, peinture, parquet : Momo Renov&apos;
+            rénove votre intérieur pièce par pièce, avec des finitions
+            soignées, des délais tenus et un chantier toujours propre.
+          </motion.p>
+
+          <motion.div
+            variants={slideUpVariants}
+            className="flex flex-wrap items-center gap-4"
+          >
+            <Link
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-90}
+              className="cursor-pointer rounded-full bg-accent px-8 py-4 text-sm font-semibold text-paper shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
+            >
+              Demander un devis gratuit
+            </Link>
+            <Link
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-90}
+              className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 px-7 py-4 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+            >
+              Voir nos réalisations
+              <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            variants={slideUpVariants}
+            className="mt-6 flex w-full flex-wrap gap-x-10 gap-y-4 border-t border-ink/10 pt-6"
+          >
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="font-heading text-3xl font-semibold text-ink">
+                  {stat.value}
+                </p>
+                <p className="mt-1 max-w-[160px] text-sm text-ink/60">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={zoomInVariants}
+          className="relative w-full max-w-md lg:w-[42%] lg:max-w-none"
+        >
+          <div className="overflow-hidden rounded-[2rem]">
+            <Image
+              src={roomImg}
+              alt="Séjour rénové : peinture et parquet posés par Momo Renov'"
+              className="h-[420px] w-full object-cover lg:h-[540px]"
+              priority
+            />
+          </div>
+
+          <div className="absolute -bottom-8 -left-6 hidden w-44 overflow-hidden rounded-2xl border-4 border-paper shadow-xl sm:block lg:-left-12 lg:w-52">
+            <Image
+              src={bathImg}
+              alt="Salle de bain rénovée par Momo Renov'"
+              className="h-32 w-full object-cover lg:h-36"
+            />
+          </div>
+
+          <div className="absolute -right-3 top-6 flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-paper shadow-lg lg:-right-6">
+            <FaStar className="text-accent" />
+            Devis gratuit, sans engagement
+          </div>
         </motion.div>
       </div>
     </div>

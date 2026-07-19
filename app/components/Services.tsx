@@ -1,60 +1,54 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
 import { allservices } from "../utils/export";
 
 const Services = () => {
   return (
-    <div id="services" className="w-full bg-white">
+    <div id="services" className="w-full bg-paper">
       <motion.div
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         variants={slideUpVariants}
-        className="lg:w-[80%] w-[90%] m-auto py-[60px] flex  flex-col justify-between items-center gap-[20px]"
+        className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28"
       >
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-yellow-500 text-2xl"
-        >
-          OFFRE SPECIALE
-        </motion.h1>
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-black uppercase text-[40px] font-bold text-center"
-        >
-          NOS SERVICES
-        </motion.h1>
-        <motion.div
-          variants={slideUpVariants}
-          className="w-[120px] h-[6px] bg-yellow-500"
-        ></motion.div>
+        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+          Nos savoir-faire
+        </span>
+        <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="font-heading max-w-xl text-4xl font-semibold text-ink sm:text-5xl">
+            Tout pour rénover votre intérieur,{" "}
+            <em className="italic text-accent">sans gros œuvre</em>
+          </h2>
+          <p className="max-w-md text-base leading-relaxed text-ink/60">
+            Des interventions ciblées, réalisées par des artisans
+            expérimentés, pour transformer chaque pièce de votre logement.
+          </p>
+        </div>
+
         <motion.div
           initial="hidden"
-          whileInView={"visible"}
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={zoomInVariants}
-          className="w-full grid lg:grid-cols-3 grid-cols-1 justify-center items-start gap-[20px] mt-[30px]"
+          className="mt-10 grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {allservices.map((item, index) => (
+          {allservices.map((item) => (
             <motion.div
               variants={zoomInVariants}
-              className="flex justify-center items-start gap-5 p-8"
-              key={index}
+              className="group flex flex-col items-start gap-4 rounded-3xl border border-ink/10 bg-white p-8 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-ink/5"
+              key={item.title}
             >
-              <Image
-                src={item.icon}
-                alt="icon"
-                width={50}
-                height={50}
-                className=" border-2 border-yellow-500 hover:bg-yellow-500 rounded-lg p-2"
-              />
-
-              <div className="flex flex-col justify-center items-start gp-3">
-                <h1 className="text-black text-xl font-bold">{item.title}</h1>
-                <p className=" mt-[10px] text-black text-[18px] text-justify">
-                  {item.about}
-                </p>
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/10 text-2xl text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+                <item.icon />
               </div>
+              <h3 className="font-heading text-2xl font-semibold text-ink">
+                {item.title}
+              </h3>
+              <p className="text-[15px] leading-relaxed text-ink/70">
+                {item.about}
+              </p>
             </motion.div>
           ))}
         </motion.div>

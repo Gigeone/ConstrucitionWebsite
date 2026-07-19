@@ -1,60 +1,61 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaQuoteLeft, FaStar } from "react-icons/fa6";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
 import { clients } from "../utils/export";
 
 const Testimonials = () => {
   return (
-    <div id="clients" className="w-full">
+    <div id="clients" className="w-full bg-sand">
       <motion.div
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         variants={slideUpVariants}
-        className="lg:w-[80%] w-[90%] m-auto py-[60px] flex  flex-col justify-between items-center gap-[20px]"
+        className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28"
       >
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-yellow-500 text-2xl"
-        >
-          TEMOIGNAGES
-        </motion.h1>
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-white uppercase text-[40px] font-bold text-center"
-        >
-          CE QU'ILS PENSENT DE NOUS
-        </motion.h1>
-        <motion.div
-          variants={slideUpVariants}
-          className="w-[120px] h-[6px] bg-yellow-500"
-        ></motion.div>
+        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+          Témoignages
+        </span>
+        <h2 className="font-heading max-w-xl text-4xl font-semibold text-ink sm:text-5xl">
+          Ce que nos clients{" "}
+          <em className="italic text-accent">disent de nous</em>
+        </h2>
+
         <motion.div
           initial="hidden"
-          whileInView={"visible"}
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={zoomInVariants}
-          className="lg:w-full w-[90%] grid lg:grid-cols-3 grid-cols-1 justify-center items-start gap-8 mt-[30px]"
+          className="mt-10 grid w-full grid-cols-1 gap-5 lg:grid-cols-3"
         >
-          {clients.map((item, index) => (
+          {clients.map((item) => (
             <div
-              className="flex justify-center items-center flex-col"
-              key={index}
+              className="flex flex-col items-start gap-5 rounded-3xl bg-paper p-8"
+              key={item.name}
             >
-              <div className="border-2 border-white hover:bg-yellow-500 pb-[100px] pt-[30px]">
-                <p className="text-white hover:text-black text-lg text-center">
-                  {item.about}
-                </p>
+              <div className="flex w-full items-center justify-between">
+                <FaQuoteLeft className="text-2xl text-accent" />
+                <div className="flex gap-1 text-sm text-accent">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <FaStar key={i} />
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-col justify-center items-center gap-[5px]">
+              <p className="text-[15px] leading-relaxed text-ink/80">
+                {item.about}
+              </p>
+              <div className="mt-auto flex items-center gap-3 border-t border-ink/10 pt-5">
                 <Image
-                  className="mt-[-50px]"
+                  className="size-12 rounded-full object-cover"
                   src={item.image}
-                  alt=" client image"
+                  alt={item.name}
                 />
-                <h1 className="text-white text-[27px] font-semibold uppercase">
-                  {item.name}
-                </h1>
-                <h1 className="text-yellow-500 text-[22px]">{item.post}</h1>
+                <div>
+                  <h3 className="text-sm font-bold text-ink">{item.name}</h3>
+                  <p className="text-sm text-accent-dark">{item.post}</p>
+                </div>
               </div>
             </div>
           ))}

@@ -5,52 +5,88 @@ import project1 from "../assets/project1.jpg";
 import project2 from "../assets/project2.jpg";
 import project3 from "../assets/project3.jpg";
 import project4 from "../assets/project4.jpg";
-import project5 from "../assets/project5.jpg";
-import project6 from "../assets/project6.jpg";
-import project7 from "../assets/project7.jpg";
-import project8 from "../assets/project8.jpg";
 import { slideUpVariants, zoomInVariants } from "../utils/animation";
+
+const projects = [
+  {
+    src: project3,
+    name: "Séjour repeint & parquet rénové",
+    place: "Nantes",
+    tags: "Peinture · Parquet",
+    className: "sm:col-span-2 sm:row-span-2 h-[260px] sm:h-full sm:min-h-[420px]",
+  },
+  {
+    src: project1,
+    name: "Salle de bain refaite à neuf",
+    place: "Rezé",
+    tags: "Salle de bain",
+    className: "h-[260px] sm:h-[200px]",
+  },
+  {
+    src: project2,
+    name: "Pose de cuisine & crédence",
+    place: "Saint-Herblain",
+    tags: "Cuisine",
+    className: "h-[260px] sm:h-[200px]",
+  },
+  {
+    src: project4,
+    name: "Terrasse en bois",
+    place: "Vertou",
+    tags: "Extérieur",
+    className: "sm:col-span-2 h-[260px] sm:h-[200px]",
+  },
+];
 
 const Porfolio = () => {
   return (
-    <div id="projects" className="w-full">
+    <div id="projects" className="w-full bg-paper">
       <motion.div
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         variants={slideUpVariants}
-        className="lg:w-[80%] w-[90%] m-auto py-[60px] flex  flex-col justify-between items-center gap-[20px]"
+        className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 pb-20 lg:px-8 lg:pb-28"
       >
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-yellow-500 text-2xl"
-        >
-          PORTFOLIO
-        </motion.h1>
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-white uppercase text-[40px] font-bold text-center"
-        >
-          NOS MEILLEURS PROJETS
-        </motion.h1>
-        <motion.div
-          variants={slideUpVariants}
-          className="w-[120px] h-[6px] bg-yellow-500"
-        ></motion.div>
+        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+          Nos réalisations
+        </span>
+        <h2 className="font-heading max-w-xl text-4xl font-semibold text-ink sm:text-5xl">
+          Des chantiers récents,{" "}
+          <em className="italic text-accent">près de chez vous</em>
+        </h2>
 
         <motion.div
           initial="hidden"
-          whileInView={"visible"}
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={zoomInVariants}
-          className="w-full grid lg:grid-cols-4 grid-cols-1 m-auto"
+          className="mt-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-4"
         >
-          <Image src={project1} alt="project1" className="h-[250px] w-full" />
-          <Image src={project2} alt="project2" className="h-[250px] w-full" />
-          <Image src={project3} alt="project3" className="h-[250px] w-full" />
-          <Image src={project4} alt="project4" className="h-[250px] w-full" />
-          <Image src={project5} alt="project5" className="h-[250px] w-full" />
-          <Image src={project6} alt="project6" className="h-[250px] w-full" />
-          <Image src={project7} alt="project7" className="h-[250px] w-full" />
-          <Image src={project8} alt="project8" className="h-[250px] w-full" />
+          {projects.map((project) => (
+            <div
+              key={project.name}
+              className={`group relative w-full overflow-hidden rounded-3xl ${project.className}`}
+            >
+              <Image
+                src={project.src}
+                alt={`${project.name} — ${project.place}`}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+                <div>
+                  <p className="font-heading text-lg font-semibold leading-snug text-paper">
+                    {project.name}
+                  </p>
+                  <p className="text-sm text-paper/70">{project.place}</p>
+                </div>
+                <span className="hidden shrink-0 rounded-full bg-paper/15 px-3 py-1 text-xs font-medium text-paper backdrop-blur-sm sm:block">
+                  {project.tags}
+                </span>
+              </div>
+            </div>
+          ))}
         </motion.div>
       </motion.div>
     </div>

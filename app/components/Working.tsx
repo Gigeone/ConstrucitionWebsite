@@ -5,47 +5,44 @@ import { planning } from "../utils/export";
 
 const Working = () => {
   return (
-    <div id="working" className="w-full bg-white">
+    <div id="working" className="w-full bg-ink">
       <motion.div
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         variants={slideUpVariants}
-        className="lg:w-[80%] w-[90%] m-auto py-[60px] flex  flex-col justify-between items-center gap-[20px]"
+        className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28"
       >
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-yellow-500 text-2xl"
-        >
-          ETAPES PAR ETAPES
-        </motion.h1>
-        <motion.h1
-          variants={slideUpVariants}
-          className="text-black uppercase text-[40px] font-bold text-center"
-        >
-          COMMENT CA MARCHE
-        </motion.h1>
-        <motion.div
-          variants={slideUpVariants}
-          className="w-[120px] h-[6px] bg-yellow-500"
-        ></motion.div>
+        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+          Comment ça marche
+        </span>
+        <h2 className="font-heading max-w-2xl text-4xl font-semibold text-paper sm:text-5xl">
+          Un déroulé simple,{" "}
+          <em className="italic text-accent">sans mauvaise surprise</em>
+        </h2>
+
         <motion.div
           initial="hidden"
-          whileInView={"visible"}
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={zoomInVariants}
-          className="w-full grid lg:grid-cols-4 grid-cols-1 justify-center items-start gap-[20px] mt-[30px]"
+          className="mt-10 grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
           {planning.map((item, index) => (
             <div
-              className="flex  flex-col justify-center items-center gap-5 border-2 border-yellow-500 p-6 rounded-mg  min-h-[500px]"
-              key={index}
+              className="flex flex-col items-start gap-4 rounded-3xl border border-paper/10 bg-ink-soft p-7 transition-colors hover:border-accent/40"
+              key={item.title}
             >
-              <div>
-                <item.icon className="size-[80px] bg-yellow-500 hover:bg-black hover:fill-white p-4 rounded-full cursor-pointer" />
+              <div className="flex w-full items-center justify-between">
+                <item.icon className="size-9 text-accent" />
+                <span className="font-heading text-4xl font-semibold italic text-paper/15">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
-              <h1 className="text-black text-2xl font-bold uppercase">
+              <h3 className="font-heading text-xl font-semibold text-paper">
                 {item.title}
-              </h1>
-              <p className="text-gray-600 text-[20px] text-center text-justify">
+              </h3>
+              <p className="text-[15px] leading-relaxed text-paper/60">
                 {item.about}
               </p>
             </div>

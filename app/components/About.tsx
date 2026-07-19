@@ -1,66 +1,79 @@
 "use client";
 import { motion } from "framer-motion";
-import { slideUpVariants, zoomInVariants } from "../utils/animation";
+import { FaCheck } from "react-icons/fa6";
+import { Link } from "react-scroll";
+import { slideUpVariants } from "../utils/animation";
+
+const highlights = [
+  "Artisans qualifiés et assurés",
+  "Devis gratuit sous 24h",
+  "Chantier propre, délais tenus",
+  "Garantie décennale",
+];
 
 const About = () => {
   return (
-    <div
-      id="about"
-      className="lg:w-[80%] w-[90%] m-auto py-[60px] flex lg:flex-row flex-col justify-between items-start gap-[50px]"
-    >
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={slideUpVariants}
-        className="lg:w-[60%] w-full flex flex-col justify-center items-start gap-6"
-      >
-        <motion.h1
+    <div id="about" className="w-full bg-sand">
+      <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 px-6 py-20 lg:flex-row lg:justify-between lg:px-8 lg:py-28">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={slideUpVariants}
-          className="text-yellow-500 text-2xl"
+          className="flex w-full flex-col items-start gap-5 lg:w-[45%]"
         >
-          {" "}
-          BIENVENUE CHEZ
-        </motion.h1>
-        <motion.h1
+          <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+            Qui sommes-nous
+          </span>
+          <h2 className="font-heading text-4xl font-semibold text-ink sm:text-5xl">
+            Une entreprise{" "}
+            <em className="italic text-accent">à taille humaine</em>, basée à
+            Nantes
+          </h2>
+          <p className="text-lg leading-relaxed text-ink/70">
+            Depuis plus de 12 ans, nous rénovons les appartements et maisons
+            de la métropole nantaise, pièce par pièce, du simple coup de neuf
+            à la rénovation complète d&apos;une salle de bain.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={slideUpVariants}
-          className="text-white uppercase text-[40px] font-bold"
+          className="flex w-full flex-col items-start gap-6 lg:w-[45%]"
         >
-          Momo Renov'
-        </motion.h1>
-        <div className="w-[120px] h-[6px] bg-yellow-500"></div>
-        <p className="text-gray-50 mt-[60px] text-3xl italic ">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae,
-          labore. Perspiciatis nostrum voluptatem repellat, porro dolore
-          officiis eveniet blanditiis dignissimos minus dicta consequuntur
-          dolorum quod fugiat commodi veniam aut rem.
-        </p>
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={slideUpVariants}
-        className="lg:w-[40%] w-full flex flex-col justify-center items-start gap-6 "
-      >
-        <p className="text-white text-lg text-justify">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id sint
-          officia, minus quis voluptates minima beatae perspiciatis quo est.
-          Commodi quo deserunt optio vel reiciendis laborum necessitatibus
-          laboriosam magni animi aliquid dolor ex similique ad ea, adipisci
-          incidunt culpa quae saepe ullam iusto. Harum ullam odit, sed impedit,
-          aspernatur corrupti consequuntur omnis nobis suscipit nesciunt aut
-          possimus perspiciatis quia quos voluptatem laborum, repudiandae nam
-          reprehenderit ad est vel molestias ut reiciendis maxime. Dolorum
-          inventore totam veniam et odio voluptate aut nostrum eveniet ratione
-          iste! Ex tenetur rerum corrupti consectetur repellendus! Reiciendis
-          quia dolor reprehenderit sunt incidunt, ex dignissimos earum eum.
-        </p>
-        <motion.button
-          variants={zoomInVariants}
-          className="bg-yellow-500 hover:bg-white hover:text-black px-10 py-3 rounded-lg text-black font-bold"
-        >
-          EN SAVOIR PLUS
-        </motion.button>
-      </motion.div>
+          <p className="text-base leading-relaxed text-ink/80">
+            Momo Renov&apos; est spécialisée dans les petits travaux et le
+            second œuvre : salle de bain, cuisine, placo, peinture, parquet.
+            Pas de gros œuvre chez nous — uniquement des travaux de finition
+            réalisés avec soin, chez les particuliers, à Nantes et dans ses
+            alentours. Un seul interlocuteur vous accompagne du devis à la
+            livraison, dans le respect de votre budget et de votre quotidien.
+          </p>
+          <ul className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+            {highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 rounded-xl bg-paper px-4 py-3 text-sm font-medium text-ink/90"
+              >
+                <FaCheck className="mt-0.5 shrink-0 text-accent" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-90}
+            className="mt-2 cursor-pointer rounded-full bg-ink px-8 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-accent"
+          >
+            Parlons de votre projet
+          </Link>
+        </motion.div>
+      </div>
     </div>
   );
 };

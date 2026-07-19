@@ -1,109 +1,106 @@
 "use client";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { Link } from "react-scroll";
 
+const navItems = [
+  { link: "Accueil", path: "hero" },
+  { link: "À propos", path: "about" },
+  { link: "Savoir-faire", path: "services" },
+  { link: "Réalisations", path: "projects" },
+  { link: "Contact", path: "contact" },
+];
+
 const Header = () => {
   const [open, setOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setOpen(!open);
-  };
+  const toggleMenu = () => setOpen((v) => !v);
+  const closeMenu = () => setOpen(false);
 
-  const closeMenu = () => {
-    setOpen(false);
-  };
-
-  const navItems = [
-    {
-      link: "Accueil",
-      path: "home",
-    },
-    {
-      link: "A propos",
-      path: "about",
-    },
-    {
-      link: "Services",
-      path: "services",
-    },
-    // {
-    //   link: "Porfolio",
-    //   path: "porfolio",
-    // },
-    {
-      link: "Projets",
-      path: "projects",
-    },
-    {
-      link: "Contact",
-      path: "contact",
-    },
-  ];
   return (
-    <nav className="w-full bg-white flex justify-between items-center gap-1 lg:px-16 px-6 py-4 sticky top-0 z-50">
-      <h1 className="text-black font-bold text-3xl md:text-4xl font-rubik">
-        Momo<span className="text-yellow-500 italic">Renov</span>
-      </h1>
+    <nav className="sticky top-0 z-50 w-full border-b border-ink/10 bg-paper/85 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8">
+        <h1 className="font-heading text-2xl font-semibold tracking-tight text-ink md:text-[27px]">
+          Momo <span className="italic text-accent">Renov&apos;</span>
+        </h1>
 
-      <ul className="lg:flex justify-center items-center gap-6 hidden">
-        {navItems.map(({ link, path }) => (
-          <Link
-            key={path}
-            className="text-black uppercase font-bold  cursor-pointer p-3 rounded-full hover:bg-yellow-500 over:text-black text-[15px]"
-            to={path}
-            spy={true}
-            smooth={true}
-            offset={-100}
-          >
-            {link}
-          </Link>
-        ))}
-      </ul>
-      <button className="bg-yellow-500 hover:bg-black hover:text-white px-10 py-3 rounded-full text-black font-semibold hover:scale-105 hidden transition-transform duration-300 cursor-pointer md-flex">
-        Nous rejoindre
-      </button>
-
-      {/* Mobile menu */}
-      <button
-        className="lg:hidden flex justify-between items-center mt-3"
-        onClick={toggleMenu}
-      >
-        <div>
-          {open ? (
-            <FaXmark className="text-3xl text-yellow-500 cursor-pointer" />
-          ) : (
-            <FaBars className="text-3xl text-yellow-500 cursor-pointer" />
-          )}
-        </div>
-      </button>
-      <button
-        className={`${
-          open ? "flex" : "hidden"
-        } w-full h-fit bg-yellow-500 p-4 absolute top-[72px] left-0`}
-        tabIndex={0}
-        onClick={closeMenu}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            closeMenu();
-          }
-        }}
-      >
-        <ul className="flex flex-col justify-center items-center gap-2 w-full">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navItems.map(({ link, path }) => (
             <Link
               key={path}
-              className="text-black uppercase font-semibold  cursor-pointer p-2 rounded-lg hover:bg-black hover:text-white w-full text-center"
+              className="cursor-pointer rounded-full px-4 py-2 text-[15px] font-medium text-ink/70 transition-colors hover:bg-sand hover:text-ink"
+              activeClass="bg-sand text-ink"
               to={path}
               spy={true}
               smooth={true}
-              offset={-100}
+              offset={-90}
             >
               {link}
             </Link>
           ))}
         </ul>
-      </button>
+
+        <Link
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={-90}
+          className="hidden cursor-pointer rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent lg:inline-block"
+        >
+          Demander un devis
+        </Link>
+
+        <button
+          className="flex items-center justify-center rounded-full p-2 text-ink lg:hidden"
+          onClick={toggleMenu}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+        >
+          {open ? (
+            <FaXmark className="size-7 text-accent" />
+          ) : (
+            <FaBars className="size-7 text-accent" />
+          )}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-ink/10 bg-paper lg:hidden"
+          >
+            <ul className="flex flex-col gap-1 px-6 py-4">
+              {navItems.map(({ link, path }) => (
+                <Link
+                  key={path}
+                  className="w-full cursor-pointer rounded-xl px-4 py-3 text-center text-[15px] font-medium text-ink transition-colors hover:bg-sand"
+                  to={path}
+                  spy={true}
+                  smooth={true}
+                  offset={-90}
+                  onClick={closeMenu}
+                >
+                  {link}
+                </Link>
+              ))}
+              <Link
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-90}
+                onClick={closeMenu}
+                className="mt-2 w-full cursor-pointer rounded-xl bg-ink px-4 py-3 text-center text-[15px] font-semibold text-paper"
+              >
+                Demander un devis
+              </Link>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
