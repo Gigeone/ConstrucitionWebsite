@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, m } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
 const navItems = [
@@ -13,12 +13,26 @@ const navItems = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setOpen((v) => !v);
   const closeMenu = () => setOpen(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-ink/10 bg-paper/85 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 w-full border-b backdrop-blur-md transition-all duration-300 ${
+        scrolled
+          ? "border-ink/10 bg-paper/90 shadow-sm shadow-ink/5"
+          : "border-transparent bg-paper/70"
+      }`}
+    >
       <nav
         aria-label="Navigation principale"
         className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8"
@@ -27,7 +41,7 @@ const Header = () => {
           href="#hero"
           className="font-heading text-2xl font-semibold tracking-tight text-ink md:text-[27px]"
         >
-          Momo <span className="italic text-accent">Renov&apos;</span>
+          Fin<span className="italic text-accent">éo</span>
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">

@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 lg:flex-row lg:justify-between">
           <div className="text-center lg:text-left">
             <p className="font-heading text-2xl font-semibold">
-              Momo <span className="italic text-accent">Renov&apos;</span>
+              Fin<span className="italic text-accent">éo</span>
             </p>
             <p className="mt-1 text-sm text-paper/60">
               Petits travaux &amp; rénovation intérieure — Nantes et alentours
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         <div className="mx-auto mt-8 flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-paper/10 pt-6 text-paper/50 sm:flex-row">
           <p className="text-center text-sm">
-            © 2026 Momo Renov&apos; — tous droits réservés
+            © 2026 Finéo — tous droits réservés
           </p>
           <div className="flex items-center gap-5 text-sm">
             <a

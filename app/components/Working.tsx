@@ -13,7 +13,7 @@ const Working = () => {
         variants={slideUpVariants}
         className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28"
       >
-        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+        <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
           Comment ça marche
         </span>
         <h2 className="font-heading max-w-2xl text-4xl font-semibold text-paper sm:text-5xl">

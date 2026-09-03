@@ -15,7 +15,7 @@ There is no test suite configured in this repo.
 
 ## Architecture
 
-Next.js 16 App Router site (TypeScript, React 19, Tailwind CSS v4) for **Momo Renov'**, a home-renovation business in Nantes, France. It is a single-page marketing site plus two static legal pages — there is no backend, database, or API layer.
+Next.js 16 App Router site (TypeScript, React 19, Tailwind CSS v4) for **Finéo** (formerly "Momo Renov'"), a home-renovation business in Nantes, France. It is a single-page marketing site plus two static legal pages — there is no backend, database, or API layer.
 
 - **`app/page.tsx`** composes the entire homepage as one column of section components in a fixed order (`Header → Hero → About → Services → Porfolio → Working → Faq → Testimonials → Contact → Footer`), each wrapped in `MotionProvider`. Sections are plain components, not routed — in-page navigation is via hash anchors (`#hero`, `#about`, `#services`, `#projects`, `#contact`) defined in `Header.tsx`'s `navItems`. When adding/reordering a homepage section, update both the composition in `page.tsx` and the anchor id/nav entry.
 - **`app/components/`** — one file per homepage section (note: `Porfolio.tsx` is misspelled but is the actual filename in use) plus shared pieces: `MotionProvider.tsx` (wraps the app in framer-motion's `LazyMotion`/`domAnimation` so individual sections can use the lightweight `m.*` components instead of `motion.*`), and `LegalLayout.tsx` (shared chrome for the legal pages).

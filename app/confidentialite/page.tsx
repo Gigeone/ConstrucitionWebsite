@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité | Momo Renov'",
+  title: "Politique de confidentialité | Finéo",
   description:
-    "Politique de confidentialité et protection des données personnelles du site de Momo Renov', Nantes.",
+    "Politique de confidentialité et protection des données personnelles du site de Finéo, Nantes.",
   alternates: {
     canonical: "/confidentialite",
   },
@@ -14,7 +14,7 @@ export default function Confidentialite() {
   return (
     <LegalLayout title="Politique de confidentialité">
       <p>
-        Momo Renov&apos; attache une grande importance à la protection de vos
+        Finéo attache une grande importance à la protection de vos
         données personnelles. Cette page décrit les données collectées via le
         site momorenov.fr et l&apos;usage qui en est fait, conformément au
         Règlement général sur la protection des données (RGPD).
@@ -45,7 +45,7 @@ export default function Confidentialite() {
 
       <h2>Destinataires</h2>
       <p>
-        Vos données sont destinées uniquement à Momo Renov&apos;. Elles ne
+        Vos données sont destinées uniquement à Finéo. Elles ne
         sont ni vendues, ni cédées, ni transmises à des tiers.
       </p>
 

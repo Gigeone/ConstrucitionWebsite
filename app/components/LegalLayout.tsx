@@ -19,7 +19,7 @@ const LegalLayout = ({
             href="/"
             className="font-heading text-2xl font-semibold tracking-tight text-ink"
           >
-            Momo <span className="italic text-accent">Renov&apos;</span>
+            Fin<span className="italic text-accent">éo</span>
           </Link>
           <Link
             href="/"
@@ -42,7 +42,7 @@ const LegalLayout = ({
 
       <footer className="w-full border-t border-ink/10 px-6 py-8">
         <p className="mx-auto max-w-4xl text-center text-sm text-ink/50">
-          © 2026 Momo Renov&apos; — tous droits réservés
+          © 2026 Finéo — tous droits réservés
         </p>
       </footer>
     </>

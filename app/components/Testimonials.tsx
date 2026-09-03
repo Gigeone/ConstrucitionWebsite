@@ -15,7 +15,7 @@ const Testimonials = () => {
         variants={slideUpVariants}
         className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28"
       >
-        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+        <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
           Témoignages
         </span>
         <h2 className="font-heading max-w-xl text-4xl font-semibold text-ink sm:text-5xl">
@@ -32,7 +32,7 @@ const Testimonials = () => {
         >
           {clients.map((item) => (
             <blockquote
-              className="flex flex-col items-start gap-5 rounded-3xl bg-paper p-8"
+              className="flex flex-col items-start gap-5 rounded-3xl border border-transparent bg-paper p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl hover:shadow-ink/5"
               key={item.name}
             >
               <div className="flex w-full items-center justify-between">

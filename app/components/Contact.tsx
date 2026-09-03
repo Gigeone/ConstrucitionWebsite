@@ -28,7 +28,7 @@ const Contact = () => {
           variants={slideUpVariants}
           className="flex w-full flex-col items-start gap-5 lg:w-[45%]"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+          <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
             Nous contacter
           </span>
           <h2 className="font-heading text-4xl font-semibold text-ink sm:text-5xl">

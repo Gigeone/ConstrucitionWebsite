@@ -13,7 +13,7 @@ const Services = () => {
         variants={slideUpVariants}
         className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28"
       >
-        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+        <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
           Nos savoir-faire
         </span>
         <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -37,10 +37,14 @@ const Services = () => {
           {allservices.map((item) => (
             <m.div
               variants={zoomInVariants}
-              className="group flex flex-col items-start gap-4 rounded-3xl border border-ink/10 bg-white p-8 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-ink/5"
+              className="group relative flex flex-col items-start gap-4 overflow-hidden rounded-3xl border border-ink/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-ink/5"
               key={item.title}
             >
-              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/10 text-2xl text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/10 text-2xl text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-paper">
                 <item.icon aria-hidden />
               </div>
               <h3 className="font-heading text-2xl font-semibold text-ink">

@@ -63,7 +63,7 @@ const Hero = () => {
             variants={slideUpVariants}
             className="max-w-xl text-lg leading-relaxed text-ink/70"
           >
-            Salle de bain, cuisine, placo, peinture, parquet : Momo Renov&apos;
+            Salle de bain, cuisine, placo, peinture, parquet : Finéo
             rénove votre intérieur pièce par pièce, avec des finitions
             soignées, des délais tenus et un chantier toujours propre.
           </m.p>
@@ -114,7 +114,7 @@ const Hero = () => {
           <div className="overflow-hidden rounded-[2rem]">
             <Image
               src={roomImg}
-              alt="Séjour rénové : peinture et parquet posés par Momo Renov'"
+              alt="Séjour rénové : peinture et parquet posés par Finéo"
               className="h-[420px] w-full object-cover lg:h-[540px]"
               sizes="(max-width: 1024px) 100vw, 40vw"
               placeholder="blur"
@@ -125,7 +125,7 @@ const Hero = () => {
           <div className="absolute -bottom-8 -left-6 hidden w-44 overflow-hidden rounded-2xl border-4 border-paper shadow-xl sm:block lg:-left-12 lg:w-52">
             <Image
               src={bathImg}
-              alt="Salle de bain rénovée par Momo Renov'"
+              alt="Salle de bain rénovée par Finéo"
               className="h-32 w-full object-cover lg:h-36"
               sizes="208px"
               placeholder="blur"

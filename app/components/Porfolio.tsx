@@ -52,7 +52,7 @@ const Porfolio = () => {
         variants={slideUpVariants}
         className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 pb-20 lg:px-8 lg:pb-28"
       >
-        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+        <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
           Nos réalisations
         </span>
         <h2 className="font-heading max-w-xl text-4xl font-semibold text-ink sm:text-5xl">
@@ -79,7 +79,7 @@ const Porfolio = () => {
                 sizes={project.sizes}
                 placeholder="blur"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-ink/80 via-ink/10 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
                 <div>
                   <p className="font-heading text-lg font-semibold leading-snug text-paper">

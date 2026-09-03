@@ -21,7 +21,7 @@ const About = () => {
           variants={slideUpVariants}
           className="flex w-full flex-col items-start gap-5 lg:w-[45%]"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+          <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
             Qui sommes-nous
           </span>
           <h2 className="font-heading text-4xl font-semibold text-ink sm:text-5xl">
@@ -44,7 +44,7 @@ const About = () => {
           className="flex w-full flex-col items-start gap-6 lg:w-[45%]"
         >
           <p className="text-base leading-relaxed text-ink/80">
-            Momo Renov&apos; est spécialisée dans les petits travaux et le
+            Finéo est spécialisée dans les petits travaux et le
             second œuvre : salle de bain, cuisine, placo, peinture, parquet.
             Pas de gros œuvre chez nous — uniquement des travaux de finition
             réalisés avec soin, chez les particuliers, à Nantes et dans ses

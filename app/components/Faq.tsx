@@ -9,7 +9,7 @@ const Faq = () => {
       className="w-full scroll-mt-24 bg-paper"
     >
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-4 px-6 py-20 lg:px-8 lg:py-28">
-        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+        <span className="eyebrow text-sm font-semibold uppercase tracking-widest text-accent">
           Questions fréquentes
         </span>
         <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">

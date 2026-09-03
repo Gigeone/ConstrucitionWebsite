@@ -18,9 +18,9 @@ const siteUrl = "https://momorenov.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Momo Renov' | Rénovation intérieure & petits travaux à Nantes",
+  title: "Finéo | Rénovation intérieure & petits travaux à Nantes",
   description:
-    "Momo Renov' réalise vos petits travaux de rénovation à Nantes et ses alentours : salle de bain, cuisine, placo, peinture, parquet. Devis gratuit sous 24h.",
+    "Finéo réalise vos petits travaux de rénovation à Nantes et ses alentours : salle de bain, cuisine, placo, peinture, parquet. Devis gratuit sous 24h.",
   keywords: [
     "rénovation intérieure Nantes",
     "petits travaux Nantes",
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: siteUrl,
-    siteName: "Momo Renov'",
-    title: "Momo Renov' | Rénovation intérieure & petits travaux à Nantes",
+    siteName: "Finéo",
+    title: "Finéo | Rénovation intérieure & petits travaux à Nantes",
     description:
       "Salle de bain, cuisine, placo, peinture, parquet : des finitions soignées à Nantes et alentours. Devis gratuit sous 24h.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Momo Renov' | Rénovation intérieure & petits travaux à Nantes",
+    title: "Finéo | Rénovation intérieure & petits travaux à Nantes",
     description:
       "Salle de bain, cuisine, placo, peinture, parquet : des finitions soignées à Nantes et alentours. Devis gratuit sous 24h.",
   },
@@ -65,7 +65,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "@id": `${siteUrl}/#business`,
-  name: "Momo Renov'",
+  name: "Finéo",
   description:
     "Entreprise de rénovation intérieure et petits travaux à Nantes : salle de bain, cuisine, placo, peinture, parquet.",
   url: siteUrl,
